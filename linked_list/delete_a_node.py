@@ -42,9 +42,14 @@ class LinkedList:
                     print("No position found in a linked list")
                     return
                 prev.next = temp.next
-                temp = None
         else:
             print("LL is empty")
+
+    def length_of_ll_recursive(self, node):
+        if not node:
+            return 0
+        else:
+            return 1 + self.length_of_ll_recursive(node.next)
 
     def print_linked(self):
         temp = self.head
@@ -62,5 +67,6 @@ llist.push(3)
 llist.push(4)
 llist.push(5)
 llist.print_linked()
-llist.delete_node(-1)
+llist.delete_node(0)
 llist.print_linked()
+print(llist.length_of_ll_recursive(llist.head))
